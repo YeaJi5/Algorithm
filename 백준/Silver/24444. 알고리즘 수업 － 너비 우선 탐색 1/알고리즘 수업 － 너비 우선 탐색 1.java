@@ -35,6 +35,10 @@ public class Main {
 
             addEdge(a, b);
         }
+        
+        for (int i=1; i<=N; i++){
+            Collections.sort(graph.get(i));
+        }
 
         bfs(R);
 
@@ -60,17 +64,16 @@ public class Main {
         while (!q.isEmpty()){
             int node = q.poll();
 
-            // 정렬을 해서 넣어주자
-            ArrayList<Integer> nextList = graph.get(node);
-            Collections.sort(nextList);
-            for (int next : nextList){
+            // 정렬을 해서 넣어주자 -> 인접리스트를 만들어준 후, bfs 시작 전 정렬해주는게 더 효율적이래
+            // ArrayList<Integer> nextList = graph.get(node);
+            // Collections.sort(nextList);
+            for (int next : graph.get(node)){
                 if (visited[next] == 0){
                     visited[next] = cnt+1;
                     cnt++;
                     q.add(next);
                 }
             }
-
         }
     }
 }
