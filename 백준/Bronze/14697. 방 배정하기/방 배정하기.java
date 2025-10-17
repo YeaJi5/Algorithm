@@ -27,7 +27,7 @@ static int a, b, c, n;
 			}else {
 				int cnt2 = r/b;
 				while (cnt2>=0) {
-					int r2 = r-(b*r);
+					int r2 = r-(b*cnt2);
 					if (r2%c==0) {
 						return 1;
 					}
